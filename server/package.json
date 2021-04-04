@@ -1,0 +1,21 @@
+{
+  "name": "gitsearch",
+  "version": "1.0.0",
+  "description": "sample git search assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "HL",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "github:octokit/rest.js",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "octokit": "^1.0.0-hello-world"
+  },
+  "bin": {
+    "executable": "server.js"
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Search API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>GitHub Repository Search</h1>
+
+    <label>Search for user (login name): </label>
+    <div class="autocomplete">
+        <input id="easySearchText" type="text" placeholder="Search...">
+    </div>
+
+    <label class="switch switch-flat">
+        <input class="switch-input" type="checkbox" onclick="OnClickToggleAdvanced()" id="toggleAdvanced"/>
+        <span class="switch-label" data-on="Advanced" data-off="Easy"></span> 
+        <span class="switch-handle"></span> 
+    </label>
+    <!-- <button onclick="OnClickAdvancedSearch()">Advanced Search</button> -->
+
+    <div class="panel" id="accordionPanel">
+        <label>Username: </label>
+        <input id="advUsername"/>
+        <label>Description: </label>
+        <input id="advDescription"/>
+        <button onclick="OnClickAdvancedSearch()">Search</button>
+        <button onclick="OnClickAdvancedClear()">Clear</button>
+        </section>
+    </div>
+
+    <section id="resultDisplay">
+    </section>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        Autocomplete();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+Programming Assignment: Autocomplete Page
+
+ 
+
+Implement an autocomplete service based on the github Search API (https://developer.github.com/v3/search/),
+
+ 
+
+The service needs to have the following:
+
+* A webpage that allows the user to enter a search term into a text input and the form will perform an AJAX call to a REST API.
+
+* A REST API that is called by the form stated above. This REST API then performs a backend (Server side) call to Github Search API.
+
+ 
+
+It can be described that the form proxy the call via the backend REST API.
+
+ 
+
+In the submission, please provide the code (preferably in a github repo), with instructions on how to setup and run the service on a local environment.
+
+ 
+
+Please use any programming language you are most comfortable with.
+
+ 
+
+This exercise should take between 2 to 8 hours of effort. For the autocomplete interactions, please make the necessary assumptions for UX and proceed.
