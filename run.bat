@@ -1,2 +1,2 @@
-start server/GitSearch.exe
+start server/GitSearchRepo.exe
 start web/index.html
