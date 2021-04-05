@@ -9,8 +9,8 @@ var cors = require('cors');
 app.use(cors({origin: 'null'}));
 
 const { Octokit } = require("@octokit/core");
-const octokit = new Octokit({auth: 'fdc0755a16ff0d836b794eba0a226f9b065b7360'});
-//const octokit = new Octokit();
+//const octokit = new Octokit({auth: 'fdc0755a16ff0d836b794eba0a226f9b065b7360'});
+const octokit = new Octokit();
 
 var server = app.listen(8081, function()
 {
