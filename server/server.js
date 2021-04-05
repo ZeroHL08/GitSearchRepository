@@ -9,8 +9,8 @@ var cors = require('cors');
 app.use(cors({origin: 'null'}));
 
 const { Octokit } = require("@octokit/core");
-//const octokit = new Octokit({auth: 'fdc0755a16ff0d836b794eba0a226f9b065b7360'});
-const octokit = new Octokit();
+const octokit = new Octokit({auth: 'fdc0755a16ff0d836b794eba0a226f9b065b7360'});
+//const octokit = new Octokit();
 
 var server = app.listen(8081, function()
 {
@@ -44,19 +44,22 @@ app.get ('/searchRepositories', async function(req, res)
 {
     try
     {
-        var search1, search2
-        if (req.query.user.length > 0)
+        var search;
+        if (req.query.user && req.query.user.length > 0)
         {
-            search1 = "q=user:"+req.query.user;
+            search = "name:"+req.query.user;
+            if (req.query.description && req.query.description.length > 0)
+                search += "&description:"+req.query.description;
         }
-        if (req.query.description.length > 0)
+        else if (req.query.description && req.query.description.length > 0)
         {
-            search2 = "q=description:"+req.query.description;
+            search = "description:"+req.query.description;
         }
+        
+        console.log("search user repositories: " + search);
         const data = await octokit.request('GET /search/repositories',
         {
-            q: search1,
-            q: search2,
+            q: search,
             per_page : 10,
             page: req.query.page,
             mediaType: {
@@ -65,8 +68,6 @@ app.get ('/searchRepositories', async function(req, res)
                 ]}
         }
         )
-
-        console.log("search user repositories: " + search1 + " - " + search2 + " - " + req.query.page);
         res.end(JSON.stringify(data.data));
     }
 
