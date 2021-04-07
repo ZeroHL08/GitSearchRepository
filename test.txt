@@ -1,0 +1,40 @@
+Database fields:
+- RoomId
+- Datebooked
+
+datebase data:
+1: room1 7apr2021
+2: room1 8apr2021
+3: room2 7apr2021
+4: room2 10apr2021
+
+Search for room1, start date, end date
+- if date valid
+- search room1, 7apr2021, 9apr2021
+   - check 7apr, 8apr, 9apr
+   - return 9apr 
+
+roomNo startdate enddate
+1: room1 7apr 8apr
+2: room2 7apr
+3: room2 10apr2021
+
+- search room1, 7apr2021, 9apr2021
+room, (startdate >= 7apr && enddate <= 9apr) 
+if not booked,
+    check 9apr == enddate
+        -> booked
+
+else 
+    not book
+
+
+whether database contains booking within req start, req end date
+database enddate = req start date
+database startdate = req end date
+database startdate < req start, db enddate < req enddate
+database startdate > req start, db enddate > req enddate
+
+ 
+ 6apr, 7apr 
+ -> record not found -> can book

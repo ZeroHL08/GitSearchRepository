@@ -74,6 +74,28 @@ app.get ('/searchRepositories', async function(req, res)
     {
         res.status(400).end(JSON.stringify(e.message));
     }    
+});
+
+app.get ('/searchIssues', async function(req, res)
+{
+    try
+    {
+       
+        console.log("search user issues: ", req.issue);
+        const data = await octokit.request('GET /search/issues',
+        {
+            q: "q=" + req.issue,
+            per_page : 10,
+            page: req.query.page,
+        }
+        )
+        res.end(JSON.stringify(data.data));
+    }
+
+    catch(e)
+    {
+        res.status(400).end(JSON.stringify(e.message));
+    }    
 }
 );
 

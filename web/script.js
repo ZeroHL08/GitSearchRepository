@@ -242,13 +242,14 @@ function ShowAdvancedSearchResult(pageNo)
     $.ajax
     (
         {
-            url:"http://127.0.0.1:8081/searchRepositories",
+            url:"http://127.0.0.1:8081/searchIssues",
             type: "GET",
             dataType: 'json',
             data:
             {
-                user: document.getElementById('advUsername').value,
-                description: document.getElementById('advDescription').value,
+                //user: document.getElementById('advUsername').value,
+                //description: document.getElementById('advDescription').value,
+                issue:document.getElementById('advDescription').value,
                 page:pageNo,
             },
             success: function(result)
@@ -307,11 +308,11 @@ function GetResultsDisplay(items)
     var htmlTag = "";
     for (var i=0 ; i<items.length ; i++)
     {
-        htmlTag+= "<li>ID: " + items[i].id + 
-        "<br>Owner ID: " + items[i].owner.id +
-        "<br>Name: " + items[i].name + 
-        "<br>Full Name: " + items[i].full_name + 
-        "<br>Repository Link: <a href=\"" + items[i].html_url + "\">View Link</a>" +
+        htmlTag+= "<li>Title: " + items[i].title + 
+       // "<br>Owner ID: " + items[i].owner.id +
+       // "<br>Name: " + items[i].name + 
+       // "<br>Full Name: " + items[i].full_name + 
+       // "<br>Repository Link: <a href=\"" + items[i].html_url + "\">View Link</a>" +
         "</li><br>"
     }
 
@@ -355,3 +356,27 @@ function OnClickBtnPage(page)
     ShowAdvancedSearchResult(page);
 }
 
+
+function ParseArray()
+{
+    var arr1 = [1,2,3,7,6,3,4,2,7,1,8];
+    var arr2 = [];
+
+    for (var index=0; index<arr1.length ; index++)
+    {
+        var isFound = false;
+        for (var i=0 ; i<arr2.length ; i++)
+        {
+            if (arr1[index] == arr2[i])
+            {
+                isFound = true;
+                break;
+            }
+        }
+
+        if (!isFound)
+            arr2.push(arr1[index]);
+    }
+
+    console.log (arr2);
+}
